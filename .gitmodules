@@ -1,0 +1,9 @@
+[submodule "themes/d3c3nt"]
+	path = themes/d3c3nt
+	url = git://git.figbert.com/d3c3nt.git
+[submodule "themes/ataraxia-zola"]
+	path = themes/ataraxia-zola
+	url = https://github.com/gersonbenavides/ataraxia-zola.git
+[submodule "themes/zola-paper"]
+	path = themes/zola-paper
+	url = https://github.com/schoenenberg/zola-paper.git

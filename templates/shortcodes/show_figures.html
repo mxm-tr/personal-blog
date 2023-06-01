@@ -1,0 +1,14 @@
+<figure class="figure row d-flex justify-content-center">
+    {% for path in paths %}
+    {% if paths | length > 1 %}
+    <div class="col-sm">
+        {% else %}
+        <div class="col-lg-8 mx-auto">
+            {% endif %}
+            {% set legend_id = loop.index-1 %}
+            <img src="{{ get_url(path=path) }}" class="figure-img img-fluid rounded mx-auto"
+                alt="{{ legends[legend_id] }}" />
+            <figcaption class="figure-caption text-center">{{ legends[legend_id] }}</figcaption>
+        </div>
+        {% endfor %}
+</figure>

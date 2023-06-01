@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  static-page:
+    build:
+      context: .
+      target: zola
+    user: "${UID}"
+    ports:
+      - 8080:8080
+      - 1024:1024
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      - serve
+      - --interface
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - --base-url
+      - localhost
+    networks:
+      - static-page-dev
+
+networks:
+  static-page-dev: {}

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  static-page:
+    image: ghcr.io/mxmtr/mxmtr-blog:v2023-06-01.1
+    build:
+      context: .
+    ports:
+      - 8080:80
+    networks:
+      - static-page-prod
+
+networks:
+  static-page-prod: {}
