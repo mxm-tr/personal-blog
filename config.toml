@@ -76,14 +76,12 @@ full_copyright = """\
         nav = [
             { name = "Home", url = "@/_index.md", icon = "bi-house" },
             { name = "Blog", url = "@/blog/_index.md", icon = "bi-file-earmark-text" },
-            { name = "Author", url = "https://gersonbdev.github.io/", icon = "bi-person" },
-            { name = "About", url = "https://github.com/gersonbdev/ataraxia-zola", icon = "bi-question-octagon" }
+            { name = "Report issues on github", url = "https://github.com/mxm-tr/personal-blog/", icon = "bi-github" },
         ]
     
     [extra.social]
         author_link = "https://author-url.com/"
         links = [
-            { name = "Email", url = "mailto:your-user@email.com", icon = "bi-envelope-fill" },
             { name = "GitHub", url = "https://github.com/mxm-tr", icon = "bi-github" },
             { name = "LinkedIn", url = "https://linkedin.com/in/maximehubert/", icon = "bi-linkedin" },
             { name = "Polywork", url = "https://poly.me/maxime_hubert", icon = "bi-grid-3x3-gap" }
