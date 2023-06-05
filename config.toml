@@ -80,7 +80,7 @@ full_copyright = """\
         ]
     
     [extra.social]
-        author_link = "https://author-url.com/"
+        author_link = "/"
         links = [
             { name = "GitHub", url = "https://github.com/mxm-tr", icon = "bi-github" },
             { name = "LinkedIn", url = "https://linkedin.com/in/maximehubert/", icon = "bi-linkedin" },

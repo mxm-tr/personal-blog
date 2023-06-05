@@ -4,7 +4,7 @@ services:
   static-page:
     build:
       context: .
-      target: zola
+      target: builder
     user: "${UID}"
     ports:
       - 8080:8080
@@ -13,13 +13,9 @@ services:
     volumes:
       - .:/app
     command:
-      - serve
-      - --interface
-      - 0.0.0.0
-      - --port
-      - "8080"
-      - --base-url
-      - localhost
+      - sh
+      - -c
+      - zola serve --interface 0.0.0.0 --port "8080" --base-url localhost --drafts
     networks:
       - static-page-dev
 

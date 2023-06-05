@@ -1,7 +1,8 @@
 +++
 title = "Introduction to Docker - Part 2"
-date = "2023-04-01"
+date = "2023-06-05"
 toc = true
+draft = true
 
 
 [taxonomies]
@@ -9,7 +10,6 @@ tags = ["docker", "blog"]
 
 [extra]
 author = "mxmtr"
-
 +++
 
 # 🕹️ Play with Docker
@@ -24,7 +24,7 @@ Let’s start with installing the Docker engine: 🔧
 
 Check that it is installed correctly by running: ⚙️
 
-```
+```bash
 docker run docker/whalesay cowsay boo
 ```
 
@@ -41,13 +41,13 @@ Install git (you should have it already!) 📥
 
 Clone the repository: 📋
 
-```
-https://github.com/docker/getting-started
+```bash
+git clone https://github.com/docker/getting-started
 ```
 
 Build and run the image: 🏗️
 
-```
+```bash
 docker build -t docker101tutorial .
 docker run -d -p 80:80 --name docker-tutorial docker101tutorial
 ```
@@ -60,7 +60,7 @@ The build context is initialized.
 
 Base images are pulled from Docker Hub.
 
-```
+```bash
 docker build -t docker101tutorial .
 ```
 
@@ -80,7 +80,7 @@ What happens if I edit a requirements file and run the build command again?
 
 The `-t` option specifies the image name and its tag:
 
-```
+```bash
 docker build <context-path> -t <image-name>:<image-tag>
 ```
 
@@ -204,7 +204,7 @@ exit
 docker commit ugly-build-v2 ugly-image:v0.2
 ```
 
-**It means that removed files remain in the underlying layers! Removing files in a new layer won't make your image smaller!**
+**It means that removed files remain in the underlying layers! :alert: Removing files in a new layer won't make your image smaller! :alert:**
 
 ## Share Images with Registries
 
@@ -242,7 +242,7 @@ docker exec -it registry find /var/lib/registry/docker/registry/
 
 All good? Now stop your registry and remove all data:
 
-```shell
+```bash
 docker container stop registry && docker container rm -v registry
 ```
 
@@ -254,8 +254,7 @@ Try to draw an image dependency tree looking at the FROM instructions.
 
 Example:
 
-```
-
+```Dockerfile
 python:alpine AS base
 base AS build
 WORKDIR /app
@@ -263,7 +262,6 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 RUN mkdocs build
-
 ```
 
 **Exercise 8: Build a ReactJS app**
@@ -276,10 +274,8 @@ Build a Docker image for this app, try to make it:
 - Build faster; and
 - The smallest possible.
 
-```
-
+```bash
 npx create-react-app project_name
-
 ```
 
 Done 🎉
