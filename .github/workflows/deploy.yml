@@ -27,7 +27,7 @@ jobs:
       
       # Create the zola builder
       - name: Build Docker image
-        run: docker build --target builder -t zola-builder
+        run: docker build --target builder -t zola-builder .
       
       # Run the zola builder
       - name: Build the website
