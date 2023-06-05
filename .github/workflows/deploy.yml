@@ -30,10 +30,14 @@ jobs:
       # Create the zola builder
       - name: Build Docker image
         run: docker build --target builder -t zola-builder .
-      
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+
       # Run the zola builder
       - name: Build the website
-        run: docker run --rm -v "${{ github.workspace }}:/site" zola-builder zola build
+        run: docker run --rm -v "${{ github.workspace }}:/site" zola-builder zola build --base-url "${{ steps.pages.outputs.base_url }}/"
       
       - name: Upload static files as artifacts
         uses: actions/upload-pages-artifact@v1
