@@ -76,7 +76,7 @@ full_copyright = """\
         nav = [
             { name = "Home", url = "@/_index.md", icon = "bi-house" },
             { name = "Blog", url = "@/blog/_index.md", icon = "bi-file-earmark-text" },
-            { name = "Report issues on github", url = "https://github.com/mxm-tr/personal-blog/", icon = "bi-github" },
+            { name = "Source", url = "https://github.com/mxm-tr/personal-blog/", icon = "bi-github" },
         ]
     
     [extra.social]
