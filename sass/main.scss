@@ -1,11 +1,21 @@
 :root {
-  --gap: 14px;
+  --gap: 8px;
   --code-inline-bg: transparent;
   --code-block-bg: black;
 }
 
 * {
   font-family: 'Courier New', Courier, monospace;
+}
+
+.language-bash {
+  margin-top: 10;
+  margin-bottom: 10;
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
+  color: rgba(255, 255, 255, 0.8);
+  background: var(--code-block-bg);
+  border-radius: 0;
 }
 
 .post-content h1:before {
@@ -191,8 +201,6 @@ td {
 }
 
 .post-content code {
-  margin-left: 4px;
-  margin-right: 4px;
   padding: 4px 6px;
   font-family: Menlo, Monaco, 'Courier New', Courier, monospace;
   font-size: 0.78em;
@@ -205,7 +213,8 @@ td {
   display: block;
   margin-top: 10;
   margin-bottom: 10;
-  padding: var(--gap);
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
   color: rgba(255, 255, 255, 0.8);
   background: var(--code-block-bg);
   border-radius: 0;

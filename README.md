@@ -1,4 +1,14 @@
 
+# Personal blog
+
+## Prerequisites
+
+Install Sass
+
+https://sass-lang.com/install/
+
+## Run the app
+
 Build
 
 ```bash

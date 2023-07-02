@@ -26,20 +26,75 @@ Check that it is installed correctly by running: ⚙️
 
 ```bash
 docker run docker/whalesay cowsay boo
+Unable to find image 'docker/whalesay:latest' locally
+latest: Pulling from docker/whalesay
+e190868d63f8: Pull complete 
+909cd34c6fd7: Pull complete 
+0b9bfabab7c1: Pull complete 
+a3ed95caeb02: Pull complete 
+00bf65475aba: Pull complete 
+c57b6bcc83e3: Pull complete 
+8978f6879e2f: Pull complete 
+8eed3712d2cf: Pull complete 
+Digest: sha256:178598e51a26abbc958b8a2e48825c90bc22e641de3d31e18aaf55f3258ba93b
+Status: Downloaded newer image for docker/whalesay:latest
+ _____ 
+< boo >
+...
+
 ```
 
 **What happens?** 🤔
 
-Docker pulls the image from docker.io by default. 🐳
+- Docker pulls the image from `docker.io` by default. 🐳
 
-- Images are composed of layers. 🖼️
+To use a different source, use the `registry.com/my-image` syntax. For example:
+
+```bash
+docker pull docker.io/docker/whalesay
+```
+
+- Images are composed of "layers": several files that are downloaded in parallel 🖼️
+
+```bash
+e190868d63f8: Pull complete 
+909cd34c6fd7: Pull complete 
+0b9bfabab7c1: Pull complete 
+a3ed95caeb02: Pull complete 
+00bf65475aba: Pull complete 
+c57b6bcc83e3: Pull complete 
+8978f6879e2f: Pull complete 
+8eed3712d2cf: Pull complete 
+```
+
+Each layer has its own *hash*: a unique identifier for layers. It helps docker to keep track of them in a cache!
+
+If you pull the image again, you will see that the layers are not downloaded again if they are already present:
+
+```bash
+docker pull docker/whalesay
+Using default tag: latest
+latest: Pulling from docker/whalesay
+e190868d63f8: Already exists 
+909cd34c6fd7: Already exists 
+...
+```
+
 - Images are indexed by their tag (default latest), and have their signature, just like layers do! 🔖
+
+It is recommended to specify the tag when you use images. For this, use the `image:tag` syntax:
+
+```bash
+docker pull docker/whalesay:latest
+```
+
+When building your app, it is recommended to specify the app version in the tag!
 
 ## Exercise 2: Follow the official tutorial - Part 1
 
-Install git (you should have it already!) 📥
+* Install git (you should have it already!) 📥
 
-Clone the repository: 📋
+* Clone the repository: 📋
 
 ```bash
 git clone https://github.com/docker/getting-started
@@ -62,9 +117,8 @@ Base images are pulled from Docker Hub.
 
 ```bash
 docker build -t docker101tutorial .
-```
-
 [+] Building 18.7s (27/27) FINISHED
+```
 
 **Build: What happens?** 🧱
 
